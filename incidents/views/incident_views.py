@@ -3,6 +3,9 @@ from django.http import HttpResponse
 from django.template import loader
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
+from rest_framework.response import Response
+
+from ..enricher import Enricher
 from ..models import Parcel, Incident
 import json
 import sys, traceback
@@ -40,7 +43,7 @@ def getIncidents(request):
                 incident = _create_incident(data, parcel)
                 enricher.enrich(incident)
                 incident.save()
-                # print(incident)
+                print(incident)
 
             return render(request, 'cad/index.html', {
                 'uploaded_file_url': uploaded_file_url,

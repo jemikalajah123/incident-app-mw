@@ -1,0 +1,111 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Test Code for Prominent Edge</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+   integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+   crossorigin=""></script>
+</head>
+<body>
+  <h1>Incident Map</h1>
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="myfile">
+    <button type="submit">Upload</button>
+  </form>
+
+  {% if uploaded_file_url %}
+    <p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+  {% endif %}
+
+  {% if error_msg %}
+    <p style="color:red;">Error Message: {{ error_msg }}</a></p>
+  {% endif %}
+
+  <div id="container">
+    <div class="row">
+      <div class="col-sm" id="mapid" style="width: 800px; height: 800px;"></div>
+      <div class="col-sm" id="incident_info">
+          <div class="row">
+            <h3>Incident Number: {{ incident.incident_number }}</h3>
+          </div>
+          <div>
+            <h6>Parcel</h6>
+            <p>Owner: {{parcel.parcel_owner_name}}</p>
+            <!--p>Address: {{parcel.parcel_mail_address}}</p-->
+            <p>Address: {{incident.incident_address_string}}</p>
+            <p>Land Area: {{parcel.parcel_land_sq_ft}}</p>
+            <p>Land Value: {{parcel.parcel_land_value}}</p>
+          </div>
+          <hr>
+          <div>
+            <h6>Incident</h6>
+            <p>Incident Type: {{incident.incident_type}} => {{incident.incident_sub_type}}</p>
+            <p>Address: {{incident.incident_address_string}}</p>
+            <p>Incident Opened: {{incident.incident_event_opened}}</p>
+            <p>Incident Closed: {{incident.incident_event_closed}}</p>
+            <p>Response Zone: {{incident.incident_response_zone}}</p>
+          </div>
+          <hr>
+          <div>
+            <h6>Response Unit Statistics</h6>
+
+            <table class="table">
+                <thead>
+                    <th scope="col">Unit Type</th>
+                    <th scope="col">Event Duration</th>
+                    <th scope="col">Response Duration</th>
+                    <th scope="col">Travel Duration</th>
+                    <th scope="col">Turnout Duration</th>
+                </thead>
+                <tbody>
+                {% for response_unit in response_unit_stats %}
+                <tr>
+                    <td>{{response_unit.unit_type}}</td>
+                    <td>{{response_unit.event_duration}}</td>
+                    <td>{{response_unit.response_duration}}</td>
+                    <td>{{response_unit.travel_duration}}</td>
+                    <td>{{response_unit.turnout_duration}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- add javascript here -->
+  <script type="text/javascript">
+    const mymap = L.map('mapid').setView([37.466513, -77.428683], 13);
+    //const incidentMarker = L.marker([0,0]).addTo(mymap);
+
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoicm9nZWxpb2lpIiwiYSI6ImNqemM1YmlmZjAwOWEzbXFuaWRpNjkxbGsifQ.WL_u767MNur9JNymWvh_5Q', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      maxZoom: 18,
+      id: 'mapbox.streets',
+      accessToken: 'pk.eyJ1Ijoicm9nZWxpb2lpIiwiYSI6ImNqemM1YmlmZjAwOWEzbXFuaWRpNjkxbGsifQ.WL_u767MNur9JNymWvh_5Q'
+    }).addTo(mymap);
+
+    //const marker = L.marker([37.466513, -77.428683]).addTo(mymap);
+    const marker = L.marker([{{marker.lat}}, {{marker.lng}}]).addTo(mymap);
+    marker.bindPopup("<b>{{incident.incident_day_of_week}}, {{incident.incident_event_opened}}</b><br><b>Weather</b><br>{{weather|safe}}<br><br>{{marker.lat}} / {{marker.lng}}").openPopup();
+
+    var polygon = L.polygon({{parcel_poly}}).addTo(mymap);
+
+  </script>
+</body>
+</html>
