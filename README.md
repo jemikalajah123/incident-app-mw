@@ -27,10 +27,10 @@ Incident Report after Enriching the second data (another view)
 
 ## Steps to install and run your app
 
-###Clone the repository
+### Clone the repository
 Run `git clone https://github.com/jemikalajah123/incident-app-mw.git `to clone the repository to your local.
 
-###Start Development server with docker
+### Start Development server with docker
 Make sure docker is installed on your local and is running. Start the development server on docker with the following commands;
 
 Run `cd libraryApp to navigate into the root directory.`
@@ -39,7 +39,7 @@ Run `docker-compose build from the root directory.`
 
 Run `docker-compose up from the root directory.`
 
-###view the App
+### view the App
 Navigate to **http://0.0.0.0:8000/**. The app will not automatically reload if you change any of the source files.
 
 ## best practices
