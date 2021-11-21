@@ -31,14 +31,16 @@ def getIncidents(request):
                     print('{} already in database.  Using database record.'.format(incident))
                     parcel = incident.incident_parcel
                 else:
+                    print("not found incident")
                     raise Exception('no incident number found.  Check File.')
             except Exception as e:
                 # We keep going
                 parcel = Parcel()
                 enricher = Enricher(data)
+                print("1")
                 enricher.enrich(parcel)
+                print("2")
                 parcel.save()
-                # print(parcel)
 
                 incident = _create_incident(data, parcel)
                 enricher.enrich(incident)

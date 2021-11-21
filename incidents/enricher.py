@@ -105,8 +105,8 @@ class Enricher():
               '&returnCountOnly=false&returnIdsOnly=false&returnGeometry=true&' \
               'maxAllowableOffset=&outSR=&outFields=&f=json'.format(flat_points)
         print('_enrich_parcel request url is: {}'.format(url))
-        response = requests.get(url)
-        print('_enrich_parcel response is: {}'.format(response.json()))
+        # response = requests.get(url)
+        # print('_enrich_parcel response is: {}'.format(response.json()))
 
         # Since i'm not getting good data from the API... gonna fake this up.
 

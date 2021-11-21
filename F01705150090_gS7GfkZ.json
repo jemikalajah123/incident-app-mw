@@ -1,0 +1,95 @@
+{
+    "address": {
+        "address_id": "", 
+        "address_line1": "4301 COMMERCE RD", 
+        "city": "Richmond", 
+        "common_place_name": "CANDLEWOOD SUITES", 
+        "cross_street1": "I95", 
+        "cross_street2": "BELLS RD", 
+        "first_due": "21", 
+        "geohash": "dq8vnhd4kbjr", 
+        "latitude": 37.466513, 
+        "longitude": -77.428683, 
+        "name": "COMMERCE", 
+        "number": "4301", 
+        "postal_code": "", 
+        "prefix_direction": "", 
+        "response_zone": "713801", 
+        "state": "VA", 
+        "suffix_direction": "", 
+        "type": "RD"
+    }, 
+    "apparatus": [
+        {
+            "car_id": "131258", 
+            "distance": 2.6, 
+            "extended_data": {
+                "event_duration": 970, 
+                "response_duration": 305, 
+                "travel_duration": 254, 
+                "turnout_duration": 51
+            }, 
+            "geohash": "dq8vm8qqt5s5", 
+            "personnel": [], 
+            "shift": "B", 
+            "station": "FSTA21", 
+            "unit_id": "E21", 
+            "unit_status": {
+                "arrived": {
+                    "geohash": "dq8vnh9sjdz0", 
+                    "latitude": 37.466827, 
+                    "longitude": -77.429335, 
+                    "timestamp": "2017-05-15T20:21:32-04:00"
+                }, 
+                "available": {
+                    "geohash": "dq8vnh9u1zf3", 
+                    "latitude": 37.466854, 
+                    "longitude": -77.429159, 
+                    "timestamp": "2017-05-15T20:32:37-04:00"
+                }, 
+                "dispatched": {
+                    "geohash": "dq8vm8qqt5s5", 
+                    "latitude": 37.48786, 
+                    "longitude": -77.44481, 
+                    "timestamp": "2017-05-15T20:16:27-04:00"
+                }, 
+                "enroute": {
+                    "geohash": "dq8vm8qqsupt", 
+                    "latitude": 37.487863, 
+                    "longitude": -77.444816, 
+                    "timestamp": "2017-05-15T20:17:18-04:00"
+                }
+            }, 
+            "unit_type": "Engine"
+        }
+    ], 
+    "description": {
+        "comments": "SPECIAL ADDRESS COMMENT: ***RFD: TARGET HAZARD*** ** LOI search completed at 05/15/17 20:16:19 ** Case number C201713866 has been assigned to event F01705150090 ** >>>> by: 3283  on terminal: ecc-f1 ** Recommended unit E21 for requirement ENGINE (2.6 mi) RAA>> Unit ID[594] Status[DP] MALE C/DIFFICULTY BREATHING RAA>> Unit ID[594] Status[ER] 3RD PARTY RAA>> <UpdateValue>[24] [ProQA: Case Entry Complete] 51-year-old, Male, Conscious, Breathing. Problem Description: CP Chief Complaint: 10, CCText: Chest Pain / Chest Discomfort (Non-Traumatic) </UpdateValue> RAA>> <UpdateValue>[25] [ProQA Dispatch] Dispatch Level: 10D01 Response Text: ALS </UpdateValue> RAA>> <UpdateValue>[26] [ProQA: Key Questions] 1. He is not completely alert (not responding appropriately).2. He is not breathing normally.</UpdateValue> RAA>> Event type changed to:CHEST RAA>> <UpdateValue>[28] [ProQA: Key Questions] 3. He is not clammy.4. He has had angina (heart pains) before.5. He did not take any drugs (medications) in the past 12hrs.</UpdateValue> RAA>> <UpdateValue>[29] [ProQA Comments] No aspirin is available at scene.;</UpdateValue> RM 235 RM 235 PER RAA RAA>> Unit ID[594] Status[AR]", 
+        "day_of_week": "Monday", 
+        "event_closed": "2017-05-15T20:32:38-04:00", 
+        "event_id": "3587687", 
+        "event_opened": "2017-05-15T20:16:18-04:00", 
+        "extended_data": {
+            "dispatch_duration": 8, 
+            "event_duration": 980, 
+            "response_time": 306
+        }, 
+        "first_unit_arrived": "2017-05-15T20:21:32-04:00", 
+        "first_unit_dispatched": "2017-05-15T20:16:26-04:00", 
+        "first_unit_enroute": "2017-05-15T20:17:18-04:00", 
+        "hour_of_day": 20, 
+        "incident_number": "F01705150090", 
+        "loi_search_complete": "2017-05-15T20:16:19-04:00", 
+        "subtype": "CHEST PAIN", 
+        "type": "EMS-1STRESP"
+    }, 
+    "fire_department": {
+        "fd_id": "76000", 
+        "firecares_id": "93345", 
+        "name": "Richmond Fire and Emergency Services", 
+        "shift": "B", 
+        "state": "VA", 
+        "timezone": "US/Eastern"
+    }, 
+    "version": "1.0.29"
+}
