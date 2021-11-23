@@ -22,4 +22,4 @@ ENV AUTHOR="Philip"
 EXPOSE 8000
 
 #Tell image what to do when it starts as a container
-CMD /incidentapp/start.sh
+CMD python manage.py migrate

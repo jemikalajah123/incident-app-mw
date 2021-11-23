@@ -8,5 +8,4 @@ services:
       - "8000:8000"
     volumes:
       - .:/incidentapp
-    command: python manage.py migrate
     command: python manage.py runserver 0.0.0.0:8000

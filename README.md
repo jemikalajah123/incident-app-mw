@@ -33,11 +33,11 @@ Run `git clone https://github.com/jemikalajah123/incident-app-mw.git `to clone t
 ### Start Development server with docker
 Make sure docker is installed on your local and is running. Start the development server on docker with the following commands;
 
-Run `cd libraryApp to navigate into the root directory.`
+Run `cd incident-app-mw `to navigate into the root directory.
 
-Run `docker-compose build from the root directory.`
+Run `docker-compose build` from the root directory.
 
-Run `docker-compose up from the root directory.`
+Run `docker-compose up` from the root directory.
 
 ### view the App
 Navigate to **http://0.0.0.0:8000/**. The app will not automatically reload if you change any of the source files.
